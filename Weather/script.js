@@ -12,9 +12,11 @@ const getWeather = (city) => {
     fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city, options).
         then(response => response.json())
         .then((response) => {
-
+            if(response.cloud_pct==undefined) {window.alert("please enter valid city name");
+        }
+        else{
             console.log(response)
-            //cloud_pct.innerHTML = response.cloud_pct
+            cloud_pct.innerHTML = response.cloud_pct
             temp.innerHTML = response.temp
             temp2.innerHTML = response.temp
             feels_like.innerHTML = response.feels_like
@@ -25,8 +27,8 @@ const getWeather = (city) => {
             wind_speed.innerHTML = response.wind_speed
             wind_speed2.innerHTML = response.wind_speed
             wind_degrees.innerHTML = response.wind_degrees
-            sunrise.innerHTML = response.sunrise
-            sunset.innerHTML = response.sunset
+            
+            }
 
         }
         )
@@ -53,8 +55,7 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Chennai', op
             max_temp1.innerHTML = response.max_temp
             wind_speed1.innerHTML = response.wind_speed
             wind_degrees1.innerHTML = response.wind_degrees
-            sunrise1.innerHTML = response.sunrise
-            sunset1.innerHTML = response.sunset
+          
     })
     .catch(err=>console.error(err));
 
@@ -71,8 +72,7 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Chennai', op
             max_temp2.innerHTML = response.max_temp
             wind_speed5.innerHTML = response.wind_speed
             wind_degrees2.innerHTML = response.wind_degrees
-            sunrise2.innerHTML = response.sunrise
-            sunset2.innerHTML = response.sunset
+            
     })
     .catch(err=>console.error(err));
     fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Kerala', options).
@@ -88,8 +88,7 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Chennai', op
             max_temp3.innerHTML = response.max_temp
             wind_speed3.innerHTML = response.wind_speed
             wind_degrees3.innerHTML = response.wind_degrees
-            sunrise3.innerHTML = response.sunrise
-            sunset3.innerHTML = response.sunset
+            
     })
     .catch(err=>console.error(err));
     fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=kolkata', options).
@@ -105,8 +104,6 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Chennai', op
             max_temp4.innerHTML = response.max_temp
             wind_speed4.innerHTML = response.wind_speed
             wind_degrees4.innerHTML = response.wind_degrees
-            sunrise4.innerHTML = response.sunrise
-            sunset4.innerHTML = response.sunset
     })
     .catch(err=>console.error(err));
 
